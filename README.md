@@ -1,3 +1,7 @@
+## Based on the JavaScript OOP course from Udacity, see details below
+
+A basic implementation of [frogger](https://terakilobyte.github.io/frogger)
+
 frontend-nanodegree-arcade-game
 ===============================
 
