@@ -77,7 +77,6 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(which) {
-  console.log(this.x, this.y);
   var move = {
     left: function() {
       if (this.x <= 0) {
