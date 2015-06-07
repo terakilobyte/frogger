@@ -3,8 +3,6 @@ var Entity = function(x, y, sprite, speed) {
   this.yConstant = 83;
   this.x = x;
   this.y = y;
-  this.sprite = sprite;
-  this.speed = speed;
 }
 
 
@@ -15,10 +13,12 @@ var Enemy = function(x, y, speed) {
 
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
-  var sprite = 'images/enemy-bug.png';
-  var speed = speed || 1;
-  Entity.call(this, x, y, sprite, speed);
+  this.sprite = 'images/enemy-bug.png';
+  this.speed = speed || 1;
+  Entity.call(this, x, y, speed);
 }
+Enemy.prototype = Object.create(Entity.prototype);
+Enemy.prototype.constructor = Enemy;
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -60,15 +60,14 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function(x, y) {
-  var sprite = 'images/char-boy.png';
-  var speed = 1;
-  Entity.call(this, x, y, sprite, speed);
+var Player = function(x, y, speed) {
+  this.sprite = 'images/char-boy.png';
+  Entity.call(this, x, y, speed);
 }
+Player.prototype = Object.create(Entity.prototype);
+Player.prototype.constructor = Player;
 
-Player.prototype.update = function(dt) {
-  this.speed *= dt;
-}
+Player.prototype.update = function(dt) {}
 
 Player.prototype.render = function() {
   ctx.drawImage(
@@ -84,28 +83,28 @@ Player.prototype.handleInput = function(which) {
       if (this.x <= 0) {
         return;
       }
-      this.x = this.x - 1;
+      this.x -= 1;
     },
 
     up: function() {
       if (this.y <= 1) {
         return this.y = 5;
       }
-      this.y = this.y - 1;
+      this.y -= 1;
     },
 
     right: function() {
       if (this.x >= 4) {
         return;
       }
-      this.x = this.x + 1;
+      this.x += 1;
     },
 
     down: function() {
       if (this.y >= 5) {
         return;
       }
-      this.y = this.y + 1;
+      this.y += 1;
     }
   };
 
