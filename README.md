@@ -1,10 +1,4 @@
-## Based on the JavaScript OOP course from Udacity, see details below
+## Based on the JavaScript OOP course from Udacity. [Original Repo](https://github.com/udacity/frontend-nanodegree-arcade-game)
 
 A basic implementation of [frogger](https://terakilobyte.github.io/frogger)
 
-frontend-nanodegree-arcade-game
-===============================
-
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
-
-for self-checking their submission.
